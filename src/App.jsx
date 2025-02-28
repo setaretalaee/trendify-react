@@ -225,44 +225,88 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
+  // const handleLogin = async () => {
+  //   if (username === "admin") {
+  //     navigate('/admin');  
+  //     return;  
+  //   }
+
+  //   try {
+  //     const response = await fetch('https://backend-final-pro.onrender.com/login', {  
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ email: username, password }), 
+  //     });
+  
+  //     const data = await response.json();
+  
+  //     if (!response.ok) {
+  //       console.log('Login failed:', data.message);
+  //       alert(data.message);
+  //       return;
+  //     }
+  
+  //     console.log('User ID:', data.userId);
+  
+  //     localStorage.setItem('userId', data.userId);
+  
+  //     navigate('/TrendifyPart/TrendifySection');
+  
+  //   } catch (error) {
+  //     console.error('Error during login:', error);
+  //     alert('There was an error logging in. Please try again.');
+  //   }
+  // };
+
+  // const handleSing = () => {
+  //   navigate('/singing');
+  // };
+
   const handleLogin = async () => {
     if (username === "admin") {
-      navigate('/admin');  
-      return;  
+      navigate('/admin');
+      return;
     }
-
+  
     try {
-      const response = await fetch('https://backend-final-pro.onrender.com/login', {  
+      const response = await fetch('https://backend-final-pro.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: username, password }), 
+        body: JSON.stringify({ email: username, password }),
       });
   
-      const data = await response.json();
-  
       if (!response.ok) {
+        const data = await response.json();
         console.log('Login failed:', data.message);
         alert(data.message);
         return;
       }
   
-      console.log('User ID:', data.userId);
+      const data = await response.json();
   
-      localStorage.setItem('userId', data.userId);
-  
-      navigate('/TrendifyPart/TrendifySection');
+      if (data.userId) {
+        console.log('User ID:', data.userId);
+        localStorage.setItem('userId', data.userId);
+        navigate('/TrendifyPart/TrendifySection');
+      } else {
+        alert('User ID not found in the response.');
+      }
   
     } catch (error) {
       console.error('Error during login:', error);
       alert('There was an error logging in. Please try again.');
     }
   };
-
+  
   const handleSing = () => {
     navigate('/singing');
   };
+  
+
 
   return (
     <div className="bg-gray-200">
