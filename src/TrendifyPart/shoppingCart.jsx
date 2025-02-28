@@ -62,12 +62,12 @@ const ShoppingCart = () => {
     const productIds = products.map((product) => product.id); 
   
     if (productIds.length === 0) {
-      alert("سبد خرید شما خالی است!");
+      alert("Your basket is empty!");
       return;
     }
   
  
-    fetch('http://localhost:3000/submitOrder', {
+    fetch('https://backend-final-pro.onrender.com/submitOrder', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,11 +80,11 @@ const ShoppingCart = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Response from server:', data);
-        alert('سفارش شما ثبت شد!');
+        alert('Your order registerd! :)');
       })
       .catch((error) => {
         console.error('Error:', error);
-        alert('مشکلی در ثبت سفارش پیش آمده است.');
+        alert('Ther is problem with your order registertion!!!');
       });
   };
   

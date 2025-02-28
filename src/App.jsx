@@ -180,7 +180,7 @@ const App = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const url = 'http://localhost:3000/people';
+        const url = 'https://backend-final-pro.onrender.com/people';
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -232,7 +232,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/login', {  
+      const response = await fetch('https://backend-final-pro.onrender.com/login', {  
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

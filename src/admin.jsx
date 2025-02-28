@@ -29,7 +29,7 @@ const AdminPage = () => {
     console.log("Sending data to server:", { hatsName, hatsPrice, hatsSize, hatsColor, hatsGender });
   
     try {
-      const response = await fetch("http://localhost:3000/AdminHats", {
+      const response = await fetch("https://backend-final-pro.onrender.com/AdminHats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

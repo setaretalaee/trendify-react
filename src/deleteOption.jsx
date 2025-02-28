@@ -12,20 +12,20 @@ const DeleteOption = () => {
       return;
     }
   
-    console.log('Sending ID:', id);  // چاپ مقدار id
+    console.log('Sending ID:', id);  
   
     setLoading(true);
   
     try {
-      const response = await fetch('http://localhost:3000/delete', {
+      const response = await fetch('https://backend-final-pro.onrender.com/delete', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id }),  // ارسال id به سرور
+        body: JSON.stringify({ id }),  
       });
   
-      const data = await response.json();  // دریافت داده‌ها به صورت json
+      const data = await response.json();  
   
       if (response.ok) {
         alert("Success: " + data.message);

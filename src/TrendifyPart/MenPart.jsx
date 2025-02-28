@@ -31,7 +31,7 @@ const MenPart = () => {
     useEffect(() => {
         const fetchTweets = async () => {
             try {
-                const url = 'http://localhost:3000/hats';  
+                const url = 'https://backend-final-pro.onrender.com/hats';  
                 const response = await fetch(url);
 
                 if (!response.ok) {
@@ -50,7 +50,7 @@ const MenPart = () => {
 
         const fetchShoes = async () => {
             try {
-                const url = 'http://localhost:3000/ShoesMen';
+                const url = 'https://backend-final-pro.onrender.com/ShoesMen';
                 const response = await fetch(url);
 
                 if (!response.ok) {
@@ -69,7 +69,7 @@ const MenPart = () => {
 
         const fetchDress = async () => {
             try {
-                const url = 'http://localhost:3000/DressMen';
+                const url = 'https://backend-final-pro.onrender.com/DressMen';
                 const response = await fetch(url);
 
                 if (!response.ok) {

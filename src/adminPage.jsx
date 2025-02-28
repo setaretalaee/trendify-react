@@ -23,7 +23,7 @@ const AdminPage = () => {
       console.log("Sending data to server:", { email, password });  
   
       try {
-        const response = await fetch("http://localhost:3000/People", {
+        const response = await fetch("https://backend-final-pro.onrender.com/People", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
