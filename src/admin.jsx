@@ -19,7 +19,7 @@ const AdminPage = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
   
     if (!hatsName || !hatsPrice || !hatsSize || !hatsColor || !hatsGender) {
       setError("All fields are required");
